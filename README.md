@@ -6,7 +6,9 @@
 
 ## 体验
 
-网页公开部署使用 GitHub Pages，朋友可在手机或电脑浏览器直接使用。发布成功后的地址为 https://zhanyina1205-ai.github.io/paw-diary/ 。首次发布操作与数据保存边界见 [GitHub 分享说明](docs/GITHUB.md)。
+**[打开爪爪日记网页版](https://zhanyina1205-ai.github.io/paw-diary/)** — 手机或电脑浏览器直接使用，无需 GitHub 账号或安装工具。
+
+网页已通过 GitHub Pages 公开发布。部署操作与数据保存边界见 [GitHub 分享说明](docs/GITHUB.md)。
 
 直接将此目录导入微信开发者工具，本机演示无需云环境。或者：
 
