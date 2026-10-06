@@ -1,0 +1,11 @@
+node_modules/
+.build/
+project.private.config.json
+.DS_Store
+coverage/
+
+.preview-build/
+
+dist/
+.env
+.env.*

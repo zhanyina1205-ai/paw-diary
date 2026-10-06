@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","compilerOptions":{"outDir":".preview-build","rootDir":"miniprogram"},"include":["miniprogram/**/*.ts"]}

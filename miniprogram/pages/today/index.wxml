@@ -1,0 +1,26 @@
+<view class="page">
+ <view class="row"><view><view class="eyebrow">PAW DIARY · 爪爪日记</view><view class="heading">今天，也要好好长大</view></view></view>
+ <view class="row gap"><text class="muted">{{date}} · {{greeting}}</text><picker wx:if="{{pets.length}}" range="{{petNames}}" value="{{petIndex}}" bindchange="switchPet"><view class="selector">🐶 {{pet.name}} ⌄</view></picker></view>
+ <view class="notice">{{status}}</view><view wx:if="{{!online}}" class="notice warning">离线 · 云端保存需联网，当前统计可能尚未包含家人的最新记录。</view>
+ <view wx:if="{{error}}" class="notice error" bindtap="retry">{{error}} · 点此重试</view>
+ <view wx:if="{{!pet && !loading}}" class="card empty"><view class="emoji">🐾</view><view class="subheading">迎接你的第一位毛孩子</view><view class="muted">录入生日、体重和食物热量，开始成长日记。</view><button class="primary gap" bindtap="goProfile">添加狗狗</button></view>
+ <block wx:if="{{pet}}">
+ <view class="card mint"><view class="row"><view><view class="badge pink">{{pet.name}} · {{age}}</view><view class="subheading small-gap">今天的喂食小账本</view><view class="muted">{{pet.breed || '我们的毛孩子'}} · {{summary.weightText}} kg · {{pet.meals}}餐 / 天</view></view><view class="sticker">🐶</view></view>
+ <view class="gap"><text class="big-number">{{summary.remainingText}}</text><text class="unit"> kcal {{summary.incomplete ? '已知热量剩余' : '剩余预算'}}</text></view>
+ <view class="progress"><view class="progress-fill" style="width:{{summary.progress}}%"></view></view>
+ <view class="row"><text class="muted">已吃 {{summary.fedText}} kcal</text><text class="muted">建议 {{summary.targetText}} kcal / 天</text></view>
+ <view wx:if="{{summary.over}}" class="notice error">⚠ 今日已超过建议热量，家人喂食前请先查看记录。</view>
+ <view wx:if="{{summary.incomplete}}" class="notice warning">⚠ 部分食物热量未填写，统计不完整，剩余预算仅供参考。</view>
+ <view wx:if="{{!summary.target}}" class="notice warning">完善体重和断奶状态，或录入兽医热量目标后可计算。</view>
+ <button class="primary gap" bindtap="goFeed">＋ 记一口，家人都知道</button></view>
+ <view class="card"><view class="row"><view class="subheading">今天建议怎么喂</view><text class="badge">每餐有数</text></view><view class="meal-grid gap"><view><view class="mini-title">主粮</view><view class="subheading">{{summary.dryText}} <text class="unit">g / 天</text></view><view class="muted">每餐 {{summary.dryMealText}} g</view></view><view><view class="mini-title">完整鲜食</view><view class="subheading">{{summary.freshText}} <text class="unit">g / 天</text></view><view class="muted">每餐 {{summary.freshMealText}} g</view></view></view>
+ <view class="source">{{summary.source}} · RER {{summary.rerText}} kcal</view><view class="muted small-gap">计划预留 {{pet.snackPercent}}% 给零食与加餐。克数按档案中选择的食品换算。</view>
+ <view wx:if="{{summary.weightStale}}" class="notice warning">⚖ 体重记录有一阵子没更新啦，称重后计算更贴近现在。</view>
+ <view wx:if="{{pet.freshPercent > 0 && !summary.recipeReady}}" class="notice warning">⚠ 鲜食主食需选择适合当前成长阶段、已确认专业审核的食谱。</view>
+ <view class="divider"></view><view class="row"><view><view class="title">🍪 {{summary.snackStatus}}</view><view class="muted">零食＋非完整加餐 {{summary.snackText}} / {{summary.snackLimitText}} kcal</view></view><text class="badge pink">≤ 10%</text></view><view class="source">超额时请结合完整正餐与兽医建议调整，剩余预算不等于应跳过正餐。</view>
+ </view>
+ <view class="card"><view class="row"><view class="subheading">最近喂过什么</view><button class="link" bindtap="goFeed">全部记录 →</button></view><view wx:for="{{recent}}" wx:key="id" class="list-row row"><view><view class="title">{{item.snapshot.name}}</view><view class="muted">{{item.actorName}} · {{item.time}} · {{item.amount}}{{item.snapshot.unit}}</view></view><text>{{item.caloriesText}} kcal</text></view><view wx:if="{{!recent.length}}" class="empty">今天还没记账，吃过后记一笔吧。</view></view>
+ <view class="card pink"><view class="row"><view class="subheading">照顾小提醒</view><button class="link" bindtap="goProfile">健康计划 →</button></view><view wx:for="{{health}}" wx:key="id" class="list-row row"><view><view class="title">{{item.name}}</view><view class="muted">{{item.dueDate}} · {{item.hospital || item.product}}</view></view><text class="badge {{item.status.level}}">{{item.status.label}}</text></view><view wx:if="{{!health.length}}" class="empty">近期没有到期事项，安心陪伴。</view></view>
+ <button class="ghost gap" bindtap="goGrowth">📷 留住今天的可爱</button><view class="footnote">一点点长大，一天天相伴 🐾</view>
+ </block>
+</view>

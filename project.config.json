@@ -1,0 +1,7 @@
+{
+ "description":"爪爪日记 · 喂食与成长记录",
+ "miniprogramRoot":"miniprogram/", "cloudfunctionRoot":"cloudfunctions/",
+ "compileType":"miniprogram", "appid":"touristappid", "projectname":"paw-diary",
+ "setting":{"es6":true,"enhance":true,"minified":true,"useCompilerPlugins":["typescript"],"packNpmManually":false},
+ "libVersion":"latest"
+}

@@ -1,0 +1,5 @@
+{
+ "extends":"./tsconfig.json",
+ "compilerOptions":{"outDir":".build","rootDir":"miniprogram","types":[],"lib":["ES2020"]},
+ "include":["miniprogram/lib/types.ts","miniprogram/lib/domain.ts","miniprogram/lib/commands.ts","miniprogram/lib/seed.ts"]
+}

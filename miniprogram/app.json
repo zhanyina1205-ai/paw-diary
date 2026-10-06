@@ -1,0 +1,7 @@
+{
+ "pages":["pages/today/index","pages/feed/index","pages/growth/index","pages/profile/index"],
+ "window":{"navigationBarTitleText":"爪爪日记","navigationBarBackgroundColor":"#FFF8EF","navigationBarTextStyle":"black","backgroundColor":"#FFF8EF","backgroundTextStyle":"dark"},
+ "tabBar":{"color":"#71645F","selectedColor":"#96546A","backgroundColor":"#FFF8EF","borderStyle":"white","list":[{"pagePath":"pages/today/index","text":"今天"},{"pagePath":"pages/feed/index","text":"喂食"},{"pagePath":"pages/growth/index","text":"成长"},{"pagePath":"pages/profile/index","text":"档案"}]},
+ "sitemapLocation":"sitemap.json",
+ "permission":{"scope.addPhoneCalendar":{"desc":"将你选择的疫苗、驱虫和体检计划添加到手机日历"}}
+}
